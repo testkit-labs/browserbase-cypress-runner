@@ -1,0 +1,7 @@
+{
+    "org": "11111111-2222-3333-4444-5555555555",
+    "path": "example-site/",
+    "paralell": 10,
+    "additional-dependencies": ["faker", "moment"],
+    "specs": "integration"
+}

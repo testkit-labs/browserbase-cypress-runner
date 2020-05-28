@@ -1,0 +1,35 @@
+{
+  "name": "browserbase-cypress-runner",
+  "version": "1.0.0",
+  "description": "App to run cypress tests in paralell on the Browserbase infrastructure",
+  "main": "app.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Browserbase/browserbase-cypress-runner.git"
+  },
+  "keywords": [
+    "cypress",
+    "browserbase"
+  ],
+  "author": "Browserbase",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Browserbase/browserbase-cypress-runner/issues"
+  },
+  "homepage": "https://github.com/Browserbase/browserbase-cypress-runner#readme",
+  "dependencies": {
+    "archiver": "^4.0.1",
+    "chalk": "^4.0.0",
+    "cli-progress": "^3.8.2",
+    "deasync": "^0.1.20",
+    "got": "^11.1.4",
+    "mochawesome-merge": "^4.0.3",
+    "ora": "^4.0.4",
+    "p-queue": "^6.4.0",
+    "request": "^2.88.2",
+    "table": "^5.4.6",
+    "tmp": "^0.2.1",
+    "yargs": "^15.3.1"
+  }
+}
