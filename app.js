@@ -147,7 +147,7 @@ async function runTest(specFile, url) {
                       "logs": logs})
     progressBar.increment()
     getReport(sessionId)
-    await sleep(1000)
+    await sleep(3000)
     try {
         got.delete('https://' + orgId + '.gateway.browserbase.io/wd/hub/session/' + sessionId)
         verbose("Removed session ID " + sessionId)
