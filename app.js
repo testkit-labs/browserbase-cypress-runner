@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const path = require('path');
 const fs = require('fs');
 const tmp = require('tmp');
@@ -241,7 +242,7 @@ function createWorkerThreads(specArray, url, directoryPath) {
 
 function checkArgs() {
     var spinner = ora('Looking for spec files...').start();
-    var directoryPath = path.join(__dirname);
+    var directoryPath = path.join(process.cwd());
     var specDirectory = "integration"
     var configFile = fs.readFileSync('browserbase.json','utf8')
     var parsedConfigFile = JSON.parse(configFile)
