@@ -41,7 +41,7 @@ In the base of this repo there is an example config file that is required in ord
 ```
 
 ## Recommendations
-We recommend that you disayle video in your cypress tests when running then on Browserbase, as we already record video of your tests and the videos are discarded after. This drastically improves performance of your tests.
+We recommend that you disayle video in your cypress tests when running then on Browserbase, as we already record video of your tests and the videos are discarded after. This drastically improves performance of your tests. Put hte below in your `cypress.json` to disable Cypress recording video
 
 ```json
 {
