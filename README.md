@@ -1,8 +1,11 @@
-# browserbase-cypress-runner
+
 
 <p align="center">
   <img width="460" height="300" src="https://raw.githubusercontent.com/Browserbase/browserbase-cypress-runner/master/bb_heart_cypress.png">
 </p>
+
+# browserbase-cypress-runner
+
 
 A wrapper for cypress that allows you to run cypress tests in paralell on the Browserbase platform.
 
