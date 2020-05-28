@@ -30,7 +30,7 @@ npx browserbase-cypress-runner --paralell 10 --spec integration/example
 ## Config 
 In the base of this repo there is an example config file that is required in order to run Cypress tests.
 
-```json
+```
 {
     "org": "11111111-2222-3333-4444-5555555555",      // Org is used to specify the Browserbse Organization ID you want to run the tests using 
     "path": "example-site/",                          // path is the relative path to the folder containing cypress.json
