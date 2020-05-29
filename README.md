@@ -24,7 +24,7 @@ npx browserbase-cypress-runner
 You can also override the config file by passing command line arguments
 
 ```
-npx browserbase-cypress-runner --paralell 10 --spec integration/example
+npx browserbase-cypress-runner --parallel 10 --spec integration/example
 ```
 
 ## Config 

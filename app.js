@@ -17,7 +17,7 @@ const uploadAPI = "https://app.browserbase.io/api/v1/cypress/upload"
 var testResults = []
 var progressBar
 var orgId
-var paralellRunners = 1
+var parallelRunners = 1
 var npmDeps = []
 
 function verbose(message) {
@@ -97,7 +97,7 @@ function sleep(ms) {
 
 
 async function runTest(specFile, url) {
-    const sessionRepsonse = await got.post('https://' + orgId + '.gateway.browserbase.io/wd/hub/session', {
+    const sessionResponse = await got.post('https://' + orgId + '.gateway.browserbase.io/wd/hub/session', {
 		json: {
             "desiredCapabilities": {
                 "browserName": "cypress",
@@ -112,13 +112,13 @@ async function runTest(specFile, url) {
 		},
 		responseType: 'json'
     });
-    jsonSessionRepsonse = sessionRepsonse.body
-    if (!jsonSessionRepsonse.sessionId) {
+    jsonSessionResponse = sessionResponse.body
+    if (!jsonSessionResponse.sessionId) {
         console.error("Failed to launch session for spec " + specFile);
         console.error(error);
         return;
     }
-    var sessionId = jsonSessionRepsonse.sessionId
+    var sessionId = jsonSessionResponse.sessionId
     verbose("Created session ID " + sessionId + " to run spec " + specFile)
     var finished
     var logs = []
@@ -222,8 +222,8 @@ function deletePerTestReports() {
 
 function createWorkerThreads(specArray, url, directoryPath) {
     progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-    const queue = new PQueue({concurrency: paralellRunners});
-    console.log('Starting testing workers with ' + paralellRunners + ' paralell threads')
+    const queue = new PQueue({concurrency: parallelRunners});
+    console.log('Starting testing workers with ' + parallelRunners + ' parallel threads')
     progressBar.start(specArray.length, 0);
     specArray.forEach(function(item) {
         queue.add(() => runTest(path.relative(path.join(directoryPath, "cypress"), item), url))
@@ -268,11 +268,11 @@ function checkArgs() {
     if (yargs.specs) {
         specDirectory = yargs.specs
     }
-    if (parsedConfigFile.paralell) {
-        paralellRunners = parsedConfigFile.paralell
+    if (parsedConfigFile.parallel) {
+        parallelRunners = parsedConfigFile.parallel
     }
-    if (yargs.paralell) {
-        paralellRunners = parsedConfigFile.paralell
+    if (yargs.parallel) {
+        parallelRunners = yargs.parallel
     }
     if (parsedConfigFile["additional-dependencies"]) {
         npmDeps = parsedConfigFile["additional-dependencies"]
@@ -281,6 +281,9 @@ function checkArgs() {
     if (specArray.length == 0) {
         console.error("Unable to find any spec files in the directory " + path.join(directoryPath, "cypress", specDirectory))
         process.exit(1)
+    }
+    if (!fs.existsSync("reports")){
+        fs.mkdirSync("reports");
     }
     spinner.succeed("Looking for spec files... Found " + specArray.length + " spec files!")
     spinner = ora('Bundling spec files...').start();
