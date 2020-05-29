@@ -1,6 +1,6 @@
 {
   "name": "browserbase-cypress-runner",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "App to run cypress tests in paralell on the Browserbase infrastructure",
   "main": "app.js",
   "scripts": {},
